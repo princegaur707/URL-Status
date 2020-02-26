@@ -21,6 +21,5 @@ class Url(models.Model):
     dom = models.CharField(max_length=100,null=True,default="Not Found")
     emails = models.CharField(max_length=100,null=True,default="Not Found")    
     rank = models.IntegerField(null=True,default=0,blank=True)
-    #rank = models.CharField(max_length=100,null=True,default="N A",blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
