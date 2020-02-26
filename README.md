@@ -1,5 +1,5 @@
-# Malicious-Urlv5
-Malicious-Urlv5
+# Malicious-Urlv
+Malicious-Urlv
 
-This application is live at https://malicious-url-detectorv5.herokuapp.com/
+This application is live at https://urlstatuspro.herokuapp.com/
 
