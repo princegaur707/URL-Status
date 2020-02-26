@@ -1,2 +1,6 @@
-Url,Status,Name,Organisation,Address,City,State,zip Code,Country,E-mails,Domain,Alexa Rank
+Url,Status,Name,Organisation,Address,City,State,Zip Code,Country,E-mails,Domain,Alexa Rank,Registrar
 
+https://github.com/abhisheksaxena1998/alpha-url-heath,Legitimate,GITHUB.COM github.com,GitHub  Inc.,None,None,CA,None,US,abusecomplaints@markmonitor.com whoisrequest@markmonitor.com,GITHUB.COM github.com,66,MarkMonitor  Inc.
+https://www.wikipedia.org,Legitimate,WIKIPEDIA.ORG wikipedia.org,Wikimedia Foundation  Inc.,None,None,CA,None,US,abusecomplaints@markmonitor.com whoisrequest@markmonitor.com,WIKIPEDIA.ORG wikipedia.org,13,MarkMonitor  Inc.
+https://www.codechef.com/,Legitimate,C O D E C H E F . C O M,Directi Internet Solutions Pvt. Ltd.,Directiplex Next to Andheri Subway  Old Nagardas Road Andheri (East),Mumbai,Maharashtra,400069,IN,abuse-contact@publicdomainregistry.com admin@codechef.com abuse@bigrock.com,C O D E C H E F . C O M,9124,BigRock Solutions Ltd
+https://www.microsoft.com,Legitimate,MICROSOFT.COM microsoft.com,Microsoft Corporation,One Microsoft Way ,Redmond,WA,98052,US,abusecomplaints@markmonitor.com domains@microsoft.com msnhst@microsoft.com whoisrequest@markmonitor.com,MICROSOFT.COM microsoft.com,34,MarkMonitor  Inc.
