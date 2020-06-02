@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+from decouple import config
 import dj_database_url
 
+SECRET_KEY = config('SECRET_KEY')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -89,8 +91,12 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+"""
+DATABASES = {
+'default': dj_database_url.config(
+default=config('DATABASE_URL')
+)
+}"""
 
 
 # Password validation

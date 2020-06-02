@@ -66,7 +66,8 @@ def result(request):
         #nm=request.GET['url']
     
         text=request.GET['url']
-
+        if not text.startswith('http'):
+            return render(request,"404.html")
         if text.startswith('https://malicious-url-detectorv5.herokuapp.com/')  :
             return render(request,'result.html',{'result':'Real-time analysis successfull','f2':'Legtimate','mal': True,'text':text,'name':"The Legions",
                         'org':"The Legions",
@@ -358,28 +359,34 @@ def result(request):
                 obj.state = state
                 obj.city = city
                 #obj.ziip = res['zip_code']
-                
                 obj.country = country 
                 obj.emails = emails
                 obj.dom = dom
                 obj.org = org
                 obj.rank = rank
+                obj.registrar=registrar
                 obj.save()
 
-            
-                if add:
-                    add=add.replace(","," ")
+                #print (add)
+                if add!=None:
+                    if add and len (add)==1:
+                        add=add.replace(",","")
+                    elif len(add)>1:
+                        add="".join(add)
+                    #print (add)     
                 
-                name=" ".join(name)
-                print (name)
-                emails=" ".join(emails)
-                org=org.replace(","," ")
-                print (org)
-                dom=" ".join(dom)
-                print (dom)
+                name="".join(name)
+                #print (name)
+                if emails!=None:
+                    emails="".join(emails)
+                if org!=None:    
+                    org=org.replace(",","")
+                #print (org)
+                dom="".join(dom)
+                #print (dom)
                 if registrar:
-                    registrar=registrar.replace(","," ")
-                print (registrar)
+                    registrar=registrar.replace(",","")
+                #print (registrar)
                 #print (emails)
                 #print(city)
 
@@ -394,8 +401,8 @@ def result(request):
                         ziip,
                         country,emails,
                         str(dom),rank,str(registrar))
-                    res.write(s)
-
+                    res.write(s)      
+            
                 return render(request,'result.html',{'result':'Real-time analysis successfull','f2':te,'mal': mal,'text':text,'name':name,
                         'org':org,
                         'add':add,
@@ -720,7 +727,7 @@ def about(request):
 def geturlhistory(request):
     try:
         mydict = {
-            "urls" : Url.objects.all()
+            "urls" : Url.objects.all().order_by('-created_at')
         }
         return render(request,'list.html',context=mydict)
     except:
@@ -743,7 +750,7 @@ def search(request):
             "urls" : Url.objects.all().filter(Q(link__contains=query) | Q(result__contains=query) | Q(created_at__contains=query) |
             Q(rank__contains=query) | Q(dom__contains=query)  | Q(country__contains=query) | Q(state__contains=query) | Q(emails__contains=query) |
             Q(add__contains=query) | Q(org__contains=query) | Q(city__contains=query)
-            )
+            ).order_by('-created_at')
         }
         return render(request,'list.html',context=mydict)
     except:
